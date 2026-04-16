@@ -91,3 +91,12 @@ function renderizarProductos() {
 }
 
 renderizarProductos();
+
+const botones = document.querySelectorAll(".btn-add");
+
+botones.forEach(function (boton) {
+  boton.addEventListener("click", function () {
+    const id = this.dataset.id;
+    console.log("Producto agregado:", id);
+  });
+});
