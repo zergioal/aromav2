@@ -77,6 +77,7 @@ const productos = [
 ];
 
 function renderizarProductos() {
+  //Crear contenedor de cada producto
   const contenedor = document.getElementById("products-container");
   contenedor.innerHTML = "";
   productos.forEach(function (producto) {
@@ -88,15 +89,16 @@ function renderizarProductos() {
     <button class="btn-add" data-id="${producto.id}">Agregar al carrito</button>
   </div>`;
   });
+
+  // Funcionamiento botones
+  const botones = document.querySelectorAll(".btn-add");
+
+  botones.forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      const id = this.dataset.id;
+      console.log("Producto agregado:", id);
+    });
+  });
 }
 
 renderizarProductos();
-
-const botones = document.querySelectorAll(".btn-add");
-
-botones.forEach(function (boton) {
-  boton.addEventListener("click", function () {
-    const id = this.dataset.id;
-    console.log("Producto agregado:", id);
-  });
-});
