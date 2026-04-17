@@ -22,21 +22,6 @@ enlaces.forEach(function (enlace) {
   });
 });
 
-// const persona = [
-//   {
-//     id: 1,
-//     nombre: "Carlos",
-//     apellido: "Guzman",
-//     edad: 21,
-//   },
-//   {
-//     id: 2,
-//     nombre: "Mariel",
-//     apellido: "Guzman",
-//     edad: 35,
-//   },
-// ];
-
 const productos = [
   {
     id: 1,
@@ -76,6 +61,17 @@ const productos = [
   },
 ];
 
+// const id = 2;
+// const resultado = productos.find((p) => p.id === id);
+// // console.log(resultado);
+
+let carrito = [];
+
+function actualizarContador() {
+  const contador = document.getElementById("cart-count");
+  contador.textContent = carrito.length;
+}
+
 function renderizarProductos() {
   //Crear contenedor de cada producto
   const contenedor = document.getElementById("products-container");
@@ -95,8 +91,14 @@ function renderizarProductos() {
 
   botones.forEach(function (boton) {
     boton.addEventListener("click", function () {
-      const id = this.dataset.id;
-      console.log("Producto agregado:", id);
+      const id = parseInt(this.dataset.id);
+      // alert("Producto agregado:" + id);
+
+      const producto = productos.find((p) => p.id === id);
+      carrito.push(producto);
+      console.log("carrito: ", carrito);
+
+      actualizarContador();
     });
   });
 }
