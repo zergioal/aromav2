@@ -83,7 +83,14 @@ function renderizarProductos() {
 
       const producto = productos.find((p) => p.id === id);
 
-      carrito.push(producto);
+      // carrito.push(producto);
+      const existente = carrito.find((p) => p.id === producto.id);
+
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({ ...producto, cantidad: 1 });
+      }
 
       actualizarContador();
       renderizarCarrito();
@@ -115,7 +122,7 @@ function renderizarCarrito() {
   carrito.forEach(function (producto) {
     contenedor.innerHTML += `
       <div class="cart-item">
-        <p>${producto.nombre}</p>
+        <p>${producto.nombre} (x ${producto.cantidad})</p>
         <span>Bs. ${producto.precio}</span>
       </div>
     `;
