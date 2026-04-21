@@ -127,6 +127,12 @@ function renderizarCarrito() {
       </div>
     `;
   });
+
+  const total = carrito.reduce((acc, producto) => {
+    return acc + producto.precio * producto.cantidad;
+  }, 0);
+
+  contenedor.innerHTML += `<h3>Total: Bs. ${total}</h3>`;
 }
 
 // ==========================
