@@ -57,6 +57,17 @@ const productos = [
 // ==========================
 let carrito = [];
 
+function guardarCarrito() {
+  localStorage.setItem("aroma_carrito", JSON.stringify(carrito));
+}
+
+function cargarCarrito() {
+  const carritoGuardado = localStorage.getItem("aroma_carrito");
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+  }
+}
+
 // ==========================
 // RENDER PRODUCTOS
 // Se usa la nueva estructura HTML con clases mejoradas
@@ -103,7 +114,7 @@ function renderizarProductos() {
       } else {
         carrito.push({ ...producto, cantidad: 1 });
       }
-
+      guardarCarrito();
       actualizarContador();
       renderizarCarrito();
 
@@ -232,7 +243,7 @@ function renderizarCarrito() {
           carrito = carrito.filter((p) => p.id !== id);
         }
       }
-
+      guardarCarrito();
       actualizarContador();
       renderizarCarrito();
     });
@@ -242,5 +253,7 @@ function renderizarCarrito() {
 // ==========================
 // INICIALIZAR
 // ==========================
+cargarCarrito();
 renderizarProductos();
 renderizarCarrito();
+actualizarContador();
