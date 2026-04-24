@@ -250,6 +250,58 @@ function renderizarCarrito() {
   });
 }
 
+function inicializarFormularioContacto() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("contact-name");
+    const email = document.getElementById("contact-email");
+    const mensaje = document.getElementById("contact-message");
+
+    const errorNombre = document.getElementById("error-name");
+    const errorEmail = document.getElementById("error-email");
+    const errorMensaje = document.getElementById("error-message");
+
+    const exito = document.getElementById("form-success");
+
+    errorNombre.textContent = "";
+    errorEmail.textContent = "";
+    errorMensaje.textContent = "";
+    exito.textContent = "";
+
+    nombre.classList.remove("input-error");
+    email.classList.remove("input-error");
+    mensaje.classList.remove("input-error");
+
+    let valido = true;
+
+    if (nombre.value.trim() === "") {
+      errorNombre.textContent = "El nombre es obligatorio";
+      nombre.classList.add("input-error");
+      valido = false;
+    }
+
+    if (nombre.value.trim() === "") {
+      errorEmail.textContent = "El email es obligatorio";
+      email.classList.add("input-error");
+      valido = false;
+    }
+
+    if (nombre.value.trim() === "") {
+      errorMensaje.textContent = "El mensaje es obligatorio";
+      mensaje.classList.add("input-error");
+      valido = false;
+    }
+    if (!valido) return;
+
+    exito.textContent = "Mensaje enviado correctamente";
+    form.reset();
+  });
+}
+
 // ==========================
 // INICIALIZAR
 // ==========================
@@ -257,3 +309,4 @@ cargarCarrito();
 renderizarProductos();
 renderizarCarrito();
 actualizarContador();
+inicializarFormularioContacto();

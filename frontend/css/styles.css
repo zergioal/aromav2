@@ -16,7 +16,6 @@
    13. Responsive (mobile-first)
 ================================================ */
 
-
 /* ================================================
    1. VARIABLES CSS Y RESET
    Las variables (--nombre) permiten cambiar colores
@@ -24,28 +23,28 @@
 ================================================ */
 :root {
   /* Paleta de colores principal */
-  --color-primary:    #6f4e37;   /* Café oscuro — color principal */
-  --color-primary-dk: #4b2e1f;   /* Café muy oscuro — títulos */
-  --color-accent:     #c08b5c;   /* Caramelo — acentos y hover */
-  --color-light:      #fdf8f4;   /* Crema muy claro — fondo */
-  --color-surface:    #ffffff;   /* Blanco — tarjetas */
-  --color-text:       #3d2b1f;   /* Texto principal */
-  --color-text-soft:  #7a5c4a;   /* Texto secundario */
-  --color-border:     rgba(111, 78, 55, 0.12);
+  --color-primary: #6f4e37; /* Café oscuro — color principal */
+  --color-primary-dk: #4b2e1f; /* Café muy oscuro — títulos */
+  --color-accent: #c08b5c; /* Caramelo — acentos y hover */
+  --color-light: #fdf8f4; /* Crema muy claro — fondo */
+  --color-surface: #ffffff; /* Blanco — tarjetas */
+  --color-text: #3d2b1f; /* Texto principal */
+  --color-text-soft: #7a5c4a; /* Texto secundario */
+  --color-border: rgba(111, 78, 55, 0.12);
 
   /* Éxito (botón agregar) */
-  --color-success:    #2e7d32;
+  --color-success: #2e7d32;
   --color-success-lt: #43a047;
 
   /* Sombras reutilizables */
-  --shadow-sm:  0 2px 8px  rgba(80, 50, 20, 0.08);
-  --shadow-md:  0 8px 24px rgba(80, 50, 20, 0.12);
-  --shadow-lg:  0 16px 40px rgba(80, 50, 20, 0.16);
+  --shadow-sm: 0 2px 8px rgba(80, 50, 20, 0.08);
+  --shadow-md: 0 8px 24px rgba(80, 50, 20, 0.12);
+  --shadow-lg: 0 16px 40px rgba(80, 50, 20, 0.16);
 
   /* Bordes redondeados */
-  --radius-sm:  8px;
-  --radius-md:  16px;
-  --radius-lg:  24px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 999px;
 
   /* Transición estándar */
@@ -53,7 +52,9 @@
 }
 
 /* Reset: elimina márgenes y padding por defecto del navegador */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -65,22 +66,27 @@
    - Inter: cuerpo (legibilidad)
 ================================================ */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-light);
   /* Fondo con patrón sutil de puntos */
-  background-image: radial-gradient(circle, rgba(111,78,55,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba(111, 78, 55, 0.06) 1px,
+    transparent 1px
+  );
   background-size: 28px 28px;
   min-height: 100vh;
 }
 
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
   line-height: 1.2;
 }
-
 
 /* ================================================
    3. NAVBAR
@@ -89,7 +95,7 @@ h1, h2, h3 {
    - Badge rojo sobre el ícono del carrito
 ================================================ */
 .navbar {
-  position: sticky;       /* Se queda arriba al hacer scroll */
+  position: sticky; /* Se queda arriba al hacer scroll */
   top: 16px;
   z-index: 100;
 
@@ -129,7 +135,7 @@ h1, h2, h3 {
 }
 
 .brand-name {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-primary-dk);
@@ -155,7 +161,10 @@ h1, h2, h3 {
   font-size: 0.95rem;
   padding: 8px 16px;
   border-radius: var(--radius-full);
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
   position: relative;
   white-space: nowrap;
 }
@@ -225,14 +234,21 @@ h1, h2, h3 {
   height: 2px;
   background: var(--color-primary);
   border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
 }
 
 /* Animación X al abrir el menú */
-.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle.active span:nth-child(2) { opacity: 0; }
-.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* ================================================
    4. LAYOUT PRINCIPAL
@@ -269,7 +285,7 @@ main {
 
 /* Línea decorativa bajo el título */
 .section-header h2::after {
-  content: '';
+  content: "";
   display: block;
   width: 56px;
   height: 4px;
@@ -283,7 +299,6 @@ main {
   font-size: 1rem;
   margin-top: 12px;
 }
-
 
 /* ================================================
    5. HERO (Vista Inicio)
@@ -307,13 +322,17 @@ main {
 
 /* Círculo decorativo de fondo */
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -60px;
   right: -60px;
   width: 280px;
   height: 280px;
-  background: radial-gradient(circle, rgba(192,139,92,0.15), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(192, 139, 92, 0.15),
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
 }
@@ -358,7 +377,11 @@ main {
 .hero-circle {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent),
+    var(--color-primary)
+  );
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -369,9 +392,8 @@ main {
 
 .hero-emoji {
   font-size: 5rem;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
-
 
 /* ================================================
    6. FEATURES (Tarjetas de características)
@@ -389,7 +411,9 @@ main {
   padding: 28px 24px;
   text-align: center;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .feature-card:hover {
@@ -414,7 +438,6 @@ main {
   color: var(--color-text-soft);
 }
 
-
 /* ================================================
    7. PRODUCTOS — Cards del menú
    - Grid responsive con auto-fit
@@ -437,7 +460,9 @@ main {
   display: flex;
   flex-direction: column;
   /* Transición suave al hacer hover */
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .product-card:hover {
@@ -477,7 +502,7 @@ main {
 
 /* Precio destacado */
 .product-price {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-primary);
@@ -493,11 +518,14 @@ main {
   border-radius: var(--radius-sm);
   background: var(--color-success);
   color: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -514,7 +542,6 @@ main {
 .btn-add:active {
   transform: scale(0.97);
 }
-
 
 /* ================================================
    8. CARRITO DE COMPRAS
@@ -613,7 +640,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
   line-height: 1;
 }
 
@@ -634,7 +664,7 @@ main {
 
 /* Precio total del item */
 .cart-item-total {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--color-primary);
@@ -678,19 +708,18 @@ main {
 }
 
 .cart-total-label {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-primary-dk);
 }
 
 .cart-total-amount {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--color-primary);
 }
-
 
 /* ================================================
    9. CONTACTO
@@ -709,7 +738,9 @@ main {
   padding: 28px 24px;
   text-align: center;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .contact-card:hover {
@@ -733,7 +764,6 @@ main {
   font-size: 0.9rem;
   color: var(--color-text-soft);
 }
-
 
 /* ================================================
    10. FOOTER
@@ -760,7 +790,6 @@ footer strong {
   color: var(--color-primary);
 }
 
-
 /* ================================================
    11. BOTONES REUTILIZABLES
    .btn-primary — botón principal (CTA)
@@ -772,13 +801,16 @@ footer strong {
   gap: 8px;
   padding: 12px 28px;
   border-radius: var(--radius-full);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .btn-primary {
@@ -802,7 +834,11 @@ footer strong {
   width: 100%;
   margin-top: 20px;
   padding: 16px;
-  background: linear-gradient(135deg, var(--color-success), var(--color-success-lt));
+  background: linear-gradient(
+    135deg,
+    var(--color-success),
+    var(--color-success-lt)
+  );
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
@@ -810,12 +846,15 @@ footer strong {
   border: none;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(46, 125, 50, 0.35);
-  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    filter var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .btn-checkout:hover {
@@ -827,7 +866,6 @@ footer strong {
 .btn-checkout:active {
   transform: scale(0.98);
 }
-
 
 /* ================================================
    12. ANIMACIONES
@@ -847,10 +885,14 @@ footer strong {
 
 /* Flotación suave del emoji del hero */
 @keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
-
 
 /* ================================================
    13. RESPONSIVE — Mobile First
@@ -862,7 +904,6 @@ footer strong {
 
 /* TABLET y MÓVIL */
 @media (max-width: 768px) {
-
   /* Navbar: mostrar botón hamburguesa */
   .nav-toggle {
     display: flex;
@@ -950,4 +991,53 @@ footer strong {
   .section-header h2 {
     font-size: 1.6rem;
   }
+}
+
+.contact-form {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  max-width: 680px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-primary-dk);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-light);
+}
+
+.error-msg {
+  display: block;
+  color: red;
+  margin-top: 4px;
+}
+
+.success-msg {
+  margin-top: 16px;
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.input-error {
+  border-color: red;
+  box-shadow: 0 0 0 3px red !important;
 }
